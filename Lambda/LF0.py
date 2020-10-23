@@ -1,7 +1,7 @@
 import json
 import boto3
 def lambda_handler(event, context):
-    text = "test"
+    #text = "test"
     #print(event)
     text = json.loads(event['body'])['messages'][0]["unstructured"]["text"]
     #test2 = event['message']

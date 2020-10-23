@@ -53,7 +53,7 @@ def lambda_handler(event, context):
         r = restaurant_info_list[i]["Item"]["name"] + ", located at " + restaurant_info_list[i]["Item"]["address"]+"; "
         content += str(i+1) +"." + r
     content += "Enjoy your meal!"
-    print(content)
+    #print(content)
     sns = boto3.client('sns')
     if len(phone) == 12 and phone[0] == "+":
         print("message sent")

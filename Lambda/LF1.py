@@ -259,7 +259,6 @@ def book_restaurant(intent_request):
         "number": str(number),
         "phone": str(phone)
     })
-    message = message.replace("\'", "\"")
     print(message)
     queue.send_message(MessageBody=message)
     
