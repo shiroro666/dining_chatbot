@@ -42,9 +42,6 @@ def lambda_handler(event, context):
         restaurant_info_list.append(table.get_item(Key={'business_id': bid}))
     #print(restaurant_info_list)
     
-    
-    arn = "arn:aws:sns:us-east-1:302762351573:chatbotResult"
-    sns = boto3.client('sns')
 
     # Send a SMS message to the specified phone number
     if len(phone) == 10:
@@ -57,12 +54,11 @@ def lambda_handler(event, context):
         content += str(i+1) +"." + r
     content += "Enjoy your meal!"
     print(content)
+    sns = boto3.client('sns')
     if len(phone) == 12 and phone[0] == "+":
         print("message sent")
         sns.publish(MessageStructure='string', PhoneNumber=phone, Message=content)
 
-    # Print out the response
-    #print(response)
 
     return {
         'statusCode': 200,
